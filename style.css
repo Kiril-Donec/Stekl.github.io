@@ -1,7 +1,7 @@
 /* Основные стили */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0056b3, #007bff, #2AC9DB); /* Більш синій градієнт */
+    background: linear-gradient(135deg, #0056b3, #007bff, #2AC9DB); /* Более синий градиент */
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -10,7 +10,7 @@ body {
 /* Стили интерфейса */
 header, nav, .hero, .about, footer {
     opacity: 0; 
-    transform: scale(0.9); /* Початкове масштабування */
+    transform: scale(0.9); /* Начальное масштабирование */
 }
 
 body.show-animations header {
@@ -92,7 +92,7 @@ nav {
 
 nav a {
     color: #fff;
-    text-decoration: none; /* Видалено підкреслення */
+    text-decoration: none; /* Удалено подчеркивание */
     margin: 0 1rem;
     padding: 0.8rem 1.2rem;
     border-radius: 5px;
@@ -110,8 +110,8 @@ main {
 }
 
 .hero {
-    background-color: rgba(255, 255, 255, 0.8); /* Напівпрозорий білий фон */
-    color: #333; /* Темний текст */
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+    color: #333; /* Темный текст */
     padding: 3rem;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -136,7 +136,8 @@ main {
 }
 
 .btn {
-    margin: 50px;
+    margin: 50px auto; /* Центрирование кнопки */
+    display: block; /* Центрирование кнопки */
     border-radius: 999px;
     padding: 10px 30px;
     font-size: 25px;
@@ -148,12 +149,42 @@ main {
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none; /* Видалено підкреслення */
+    text-decoration: none; /* Удалено подчеркивание */
+    cursor: pointer; /* Курсор указателя */
 }
 
 .btn:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Добавление анимаций для кнопки */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.btn:active {
+    animation: pulse 0.6s ease, rotate 0.6s ease;
 }
 
 .about {
@@ -190,16 +221,37 @@ footer p {
 }
 
 #about-link {
-    background-color: #007bffa8; /* Темніший відтінок синього */
+    background-color: #007bffa8; /* Более темный оттенок синего */
     border-color: #54575a;
     border-radius: 8px;
-    transition: color 1.3s ease; /* Плавний перехід кольору */
+    transition: color 1.3s ease; /* Плавный переход цвета */
 }
 
 #page-transition {
-    transition: opacity 0.5s ease; /* Плавний перехід непрозорості */
+    transition: opacity 0.5s ease; /* Плавный переход непрозрачности */
 }
 
 #page-transition.is-exiting {
-    opacity: 0; /* Зменшуємо непрозорість при виході */
+    opacity: 0; /* Уменьшение непрозрачности при выходе */
+}
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    .btn {
+        margin: 20px auto; /* Уменьшение отступа для мобильных устройств */
+        padding: 8px 20px; /* Уменьшение размера кнопки для мобильных устройств */
+        font-size: 18px; /* Уменьшение размера шрифта для мобильных устройств */
+    }
+
+    .hero {
+        padding: 2rem; /* Уменьшение внутреннего отступа для мобильных устройств */
+    }
+
+    .hero h2 {
+        font-size: 2rem; /* Уменьшение размера заголовка для мобильных устройств */
+    }
+
+    .hero p {
+        font-size: 1.2rem; /* Уменьшение размера текста для мобильных устройств */
+    }
 }
