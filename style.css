@@ -1,0 +1,205 @@
+/* Основные стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0056b3, #007bff, #2AC9DB); /* Більш синій градієнт */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Стили интерфейса */
+header, nav, .hero, .about, footer {
+    opacity: 0; 
+    transform: scale(0.9); /* Початкове масштабування */
+}
+
+body.show-animations header {
+    opacity: 1;
+    transform: scale(1);
+    animation: slideInDown 0.8s ease forwards;
+}
+
+body.show-animations nav {
+    opacity: 1;
+    transform: scale(1);
+    animation: slideInLeft 0.8s ease forwards;
+}
+
+body.show-animations .hero {
+    opacity: 1;
+    transform: scale(1);
+    animation: zoomIn 0.8s ease forwards;
+}
+
+body.show-animations .about {
+    opacity: 1;
+    transform: scale(1);
+    animation: slideInRight 0.8s ease forwards;
+}
+
+body.show-animations footer {
+    opacity: 1;
+    transform: scale(1);
+    animation: slideInUp 0.8s ease forwards;
+}
+
+/* Анимации */
+@keyframes slideInDown {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-20px); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(20px); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(20px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); }
+    to { transform: scale(1); }
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+header:hover {
+    background-color: #0069d9;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #0062cc;
+    padding: 0.5rem 0;
+    border-radius: 5px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none; /* Видалено підкреслення */
+    margin: 0 1rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #005cbf;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    padding: 2rem;
+}
+
+.hero {
+    background-color: rgba(255, 255, 255, 0.8); /* Напівпрозорий білий фон */
+    color: #333; /* Темний текст */
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn {
+    margin: 50px;
+    border-radius: 999px;
+    padding: 10px 30px;
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border: none;
+    background: linear-gradient(-90deg, #CF77F3 0%, #009BFF 47%, #2AC9DB 100%);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Видалено підкреслення */
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.about h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.about p {
+    font-size: 1rem;
+}
+
+footer {
+    background-color: #007bff;
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.9rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #0062cc;
+    border-radius: 8px;
+    margin: 1.5rem;
+}
+
+#about-link {
+    background-color: #007bffa8; /* Темніший відтінок синього */
+    border-color: #54575a;
+    border-radius: 8px;
+    transition: color 1.3s ease; /* Плавний перехід кольору */
+}
+
+#page-transition {
+    transition: opacity 0.5s ease; /* Плавний перехід непрозорості */
+}
+
+#page-transition.is-exiting {
+    opacity: 0; /* Зменшуємо непрозорість при виході */
+}

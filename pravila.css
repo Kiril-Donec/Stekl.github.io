@@ -1,0 +1,198 @@
+/* Основные стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #004690, #007bff, #2AC9DB); /* Новий градієнт */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-size: 200% 200%; /* Для анімації */
+    animation: gradientAnimation 15s ease infinite; /* Анімація фону */
+}
+
+/* Стили интерфейса */
+header, nav, .rules, footer {
+    opacity: 0; 
+    transform: scale(0.9) rotate(-10deg); /* Початкове обертання */
+}
+
+body.show-animations header {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+    animation: slideInDown 0.8s ease forwards;
+}
+
+body.show-animations nav {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+    animation: slideInLeft 0.8s ease forwards;
+}
+
+body.show-animations .rules {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+    animation: zoomIn 0.8s ease forwards;
+}
+
+body.show-animations footer {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+    animation: slideInUp 0.8s ease forwards;
+}
+
+/* Анимации */
+@keyframes slideInDown {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-20px); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(20px); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(20px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); }
+    to { transform: scale(1); }
+}
+
+/* Анімація градієнта */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+header:hover {
+    background-color: #0069d9;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #0062cc;
+    padding: 0.5rem 0;
+    border-radius: 5px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #005cbf;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    padding: 2rem;
+}
+
+/* Стили для контейнера правил */
+.rules {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Стили для заголовків */
+h2 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+/* Стили для заголовку з анімованим градієнтом */
+h1#header-title {
+    background: linear-gradient(45deg, #fff, #ccf2ff); /* Новий градієнт */
+    background-size: 300% 300%; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientAnimation 10s ease infinite; 
+}  
+
+/* Стили для тексту */
+p {
+    color: #333;
+}
+
+/* Стили для списку */
+ul {
+    list-style: none; 
+    padding: 0;
+}
+
+/* Стили для елементів списку */
+li {
+    margin-bottom: 1.5rem;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+footer {
+    background-color: #007bff;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.9rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #55a1f2;
+    border-radius: 8px;
+    color: #fff;
+    margin: 1.5rem;
+}
+
+about-link {
+    background-color:#d0d0d0
+}
+
+#about-link {
+    background-color: #007bffa8; /* Темніший відтінок синього */
+    border-color: #54575a;
+    border-radius: 8px;
+    transition: color 1.3s ease; /* Плавний перехід кольору */
+}
+
+#page-transition {
+    transition: opacity 0.5s ease; /* Плавний перехід непрозорості */
+}
+
+#page-transition.is-exiting {
+    opacity: 0; /* Зменшуємо непрозорість при виході */
+}
